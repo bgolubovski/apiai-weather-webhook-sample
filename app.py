@@ -13,6 +13,13 @@ app = Flask(__name__)
 
 
 @app.route('/webhook', methods=['POST'])
+@app.route('/test', methods=['GET'])
+def test():
+    r = make_response('Ok')
+    r.headers['Content-Type'] = 'text/plain'
+    return r
+
+
 def webhook():
     req = request.get_json(silent=True, force=True)
 
